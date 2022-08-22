@@ -8,14 +8,21 @@ class HornedBeast extends React.Component {
     super(props);
     this.state = {
       favorite: "",
+      click:""
     };
   }
 
   favoriteImage = () => {
     this.setState({
-      favorite: this.state.favorite + "⭐️",
+      favorite: this.state.favorite + "💛",
     });
   };
+
+  message = () => {
+    this.setState({
+      Click: alert(`This is a ${this.props.title}`),
+    });
+  }
 
   render() {
     return (
@@ -25,8 +32,8 @@ class HornedBeast extends React.Component {
           src={this.props.imageUrl}
           onClick={this.favoriteImage}
         />
-        <Card.Body>
-          <Card.Title>{this.props.Title}</Card.Title>
+        <Card.Body onClick={this.message}>
+          <Card.Title>{this.props.title}</Card.Title>
           <Card.Text>{this.props.description }<br/>  Favorites:  {this.state.favorite}</Card.Text>
         </Card.Body>
       </Card>
