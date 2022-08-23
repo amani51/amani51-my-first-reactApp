@@ -8,15 +8,9 @@ class Header extends React.Component {
     };
   }
 
-
-  message = () => {
-    this.setState({
-      Click: alert(`Welcome to Horned Beasts page`),
-    });
-  }
   render() {
     return (
-      <header onClick={this.message}>
+      <header>
         <h1>Welcome to my first React App !!</h1>
       </header>
     );
