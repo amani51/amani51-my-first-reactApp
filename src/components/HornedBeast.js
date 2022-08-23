@@ -4,25 +4,14 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 
 class HornedBeast extends React.Component {
+  
   constructor(props) {
-    super(props);
-    this.state = {
-      favorite: "",
-      click: "",
-    };
-  }
+    super(props)
+}
+Beast=()=>{
+  this.props.updateBeast()
+}
 
-  favoriteImage = () => {
-    this.setState({
-      favorite: this.state.favorite + "💛",
-    });
-  };
-
-  message = () => {
-    this.setState({
-      Click: alert(`This is a ${this.props.title}`),
-    });
-  };
 
   render() {
     return (
@@ -31,13 +20,13 @@ class HornedBeast extends React.Component {
           <Card.Img
             variant="top"
             src={this.props.imageUrl}
-            onClick={this.favoriteImage}
+             onClick={this.props.Beast}
           />
-          <Card.Body onClick={this.message}>
+          <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
             <Card.Text>
               {this.props.description}
-              <br /> Favorites: {this.state.favorite}
+              <br /> 
             </Card.Text>
           </Card.Body>
         </Card>
