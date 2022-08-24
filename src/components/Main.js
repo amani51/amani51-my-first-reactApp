@@ -5,10 +5,6 @@ class Main extends React.Component {
   constructor(props) {
     super(props)
 }
-updateBeast = () => {
-  this.props.update(); 
-}
-
   render() {
     return (
       <div>
@@ -20,7 +16,7 @@ updateBeast = () => {
                   title={cards.title}
                   imageUrl={cards.image_url}
                   description={cards.description}
-                  clicked={this.updateBeast}
+                  clicked={this.props.update}
                 />
               </div>
             );

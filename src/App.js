@@ -24,6 +24,7 @@ class App extends React.Component {
         description: this.state.description,
       },
     });
+    alert("hello")
   };
 
   render() {
