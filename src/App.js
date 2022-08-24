@@ -1,4 +1,5 @@
 import React from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
@@ -8,34 +9,38 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      click: {
-        title: "",
-        imageUrl: "",
-        description: "",
-      },
+      Beast:{},
+      show:false, 
     };
   }
 
-  updateState = () => {
+  updateState = (horns) => {
+    const horn=Cards.find(beast=>beast.horns===horns);
     this.setState({
-      click: {
-        title: this.state.title,
-        imageUrl: this.state.imageUrl,
-        description: this.state.description,
-      },
+      show:true ,
+      Beast:horn
     });
-    alert("hello")
+    
+    
   };
-
+  handleClose=()=>{
+    this.setState({
+      show:false
+    })
+  }
+  
   render() {
     return (
       <body>
         <Header />
         <Main Cards={Cards} update={this.updateState} />
         <SelectedBeast
-          title={this.state.click.title}
-          imageUrl={this.state.click.image_url}
-          description={this.state.click.description}
+          // title={Cards.title}
+          // imageUrl={Cards.image_url}
+          // description={Cards.description}
+          updateState={this.state.show}
+          handleClose={this.handleClose}
+          selectedOne={this.state.Beast}
         />
         <Footer />
       </body>
