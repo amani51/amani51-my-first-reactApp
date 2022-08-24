@@ -1,59 +1,60 @@
 import React from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header";
 import Main from "./components/Main";
 import Footer from "./components/Footer";
 import Cards from "./components/data.json";
 import SelectedBeast from "./components/SelectedBeast";
-// import Form from 'react-bootstrap/Form';
+import Form from "react-bootstrap/Form";
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Beast:{},
-      show:false,
-      // newCards:{Cards}
-
+      Beast: {},
+      show: false,
+      newCards: { Cards },
     };
   }
 
   updateState = (title) => {
-    const beastName=Cards.find(beast=>beast.title===title);
+    const beastName = Cards.find((beast) => beast.title === title);
+
     this.setState({
-      show:true ,
-      Beast:beastName
+      show: true,
+      Beast: beastName,
     });
   };
-  // eventHappened=(event)=>{
-  //   let horns=event.target.options.value;
-  //   const beastNum=Cards.find(beast=>beast.horns==horns);
-  //   this.setState({
-  //     newCards: beastNum
-  //   });
-  // }
-
-  handleClose=()=>{
+  eventHappened = (event) => {
+    event.preventDefault()
+    let Horns = event.target.options.value;
+        // const beastNum = Cards.find((horns) => beast.title === title);
+    const beastNum = Cards.find(( horns ) => horns.horns === Horns);
     this.setState({
-      show:false
-    })
-  }
-  
+      newCards: beastNum,
+    });
+  };
+
+  handleClose = () => {
+    this.setState({
+      show: false,
+    });
+  };
+
   render() {
     return (
       <body>
         <Header />
-        {/* <Form.Group className="mb-3" >
-        <Form.Label>Filter</Form.Label>
-        <Form.Select onChange={this.eventHappened} id="options">
-          <option value="">-Please choose an option-</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="100">100</option>
-        </Form.Select>
-
-        </Form.Group> */}
-        <Main CardsBeast={Cards} update={this.updateState} /> 
+        <Form.Group className="mb-3">
+          <Form.Label>Filter</Form.Label>
+          <Form.Select onChange={this.eventHappened} id="options">
+            <option value="">-Please choose an option-</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="100">100</option>
+          </Form.Select>
+        </Form.Group>
+        <Main Cards={Cards} update={this.updateState} />
         <SelectedBeast
           updateState={this.state.show}
           handleClose={this.handleClose}

@@ -11,7 +11,7 @@ class Main extends React.Component {
       <div>
 
         <Row xs={1} md={3} className="g-4">
-          {this.props.CardsBeast.map((cards) => {
+          {this.props.Cards.map((cards) => {
             return (
               <div>
                 <HornedBeast
