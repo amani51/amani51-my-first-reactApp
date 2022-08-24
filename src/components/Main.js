@@ -16,7 +16,8 @@ class Main extends React.Component {
                   title={cards.title}
                   imageUrl={cards.image_url}
                   description={cards.description}
-                  clicked={this.props.update}
+                  horns={cards.horns}
+                  update={this.props.update}
                 />
               </div>
             );

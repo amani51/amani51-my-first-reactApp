@@ -15,13 +15,14 @@ class HornedBeast extends React.Component {
           <Card.Img
             variant="top"
             src={this.props.imageUrl}
-             onClick={this.props.clicked}
+             onClick={()=>{this.props.update(this.props.horns)}}
           />
           <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
             <Card.Text>
               {this.props.description}
               <br /> 
+              Number of horns: {this.props.horns}
             </Card.Text>
           </Card.Body>
         </Card>
