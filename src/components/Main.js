@@ -1,6 +1,7 @@
 import React from "react";
 import HornedBeast from "./HornedBeast";
 import Row from "react-bootstrap/Row";
+
 class Main extends React.Component {
   constructor(props) {
     super(props)
@@ -8,8 +9,9 @@ class Main extends React.Component {
   render() {
     return (
       <div>
+
         <Row xs={1} md={3} className="g-4">
-          {this.props.Cards.map((cards) => {
+          {this.props.CardsBeast.map((cards) => {
             return (
               <div>
                 <HornedBeast

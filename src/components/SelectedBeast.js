@@ -1,6 +1,6 @@
 import React from "react";
 import {Modal,Button} from 'react-bootstrap';
-import Image from 'react-bootstrap/Image'
+
 
 class SelectedBeast extends React.Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class SelectedBeast extends React.Component {
         <Modal.Title>{this.props.selectedOne.title}</Modal.Title>
       </Modal.Header>
       <Modal.Body>{this.props.selectedOne.description}
-        <img src={this.props.selectedOne.imageUrl} alt={this.props.selectedOne.title}/>
+        <img src={this.props.selectedOne.image_url} alt={this.props.selectedOne.title}/>
       </Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={this.props.handleClose}>
