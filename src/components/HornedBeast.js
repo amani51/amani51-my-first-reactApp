@@ -8,11 +8,6 @@ class HornedBeast extends React.Component {
   constructor(props) {
     super(props)
 }
-Beast=()=>{
-  this.props.updateBeast()
-}
-
-
   render() {
     return (
       <Col>
@@ -20,7 +15,7 @@ Beast=()=>{
           <Card.Img
             variant="top"
             src={this.props.imageUrl}
-             onClick={this.props.Beast}
+             onClick={this.props.clicked}
           />
           <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
