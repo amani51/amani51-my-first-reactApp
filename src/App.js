@@ -5,24 +5,33 @@ import Main from "./components/Main";
 import Footer from "./components/Footer";
 import Cards from "./components/data.json";
 import SelectedBeast from "./components/SelectedBeast";
+// import Form from 'react-bootstrap/Form';
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       Beast:{},
-      show:false, 
+      show:false,
+      // newCards:{Cards}
+
     };
   }
 
-  updateState = (horns) => {
-    const horn=Cards.find(beast=>beast.horns===horns);
+  updateState = (title) => {
+    const beastName=Cards.find(beast=>beast.title===title);
     this.setState({
       show:true ,
-      Beast:horn
+      Beast:beastName
     });
-    
-    
   };
+  // eventHappened=(event)=>{
+  //   let horns=event.target.options.value;
+  //   const beastNum=Cards.find(beast=>beast.horns==horns);
+  //   this.setState({
+  //     newCards: beastNum
+  //   });
+  // }
+
   handleClose=()=>{
     this.setState({
       show:false
@@ -33,11 +42,19 @@ class App extends React.Component {
     return (
       <body>
         <Header />
-        <Main Cards={Cards} update={this.updateState} />
+        {/* <Form.Group className="mb-3" >
+        <Form.Label>Filter</Form.Label>
+        <Form.Select onChange={this.eventHappened} id="options">
+          <option value="">-Please choose an option-</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="100">100</option>
+        </Form.Select>
+
+        </Form.Group> */}
+        <Main CardsBeast={Cards} update={this.updateState} /> 
         <SelectedBeast
-          // title={Cards.title}
-          // imageUrl={Cards.image_url}
-          // description={Cards.description}
           updateState={this.state.show}
           handleClose={this.handleClose}
           selectedOne={this.state.Beast}

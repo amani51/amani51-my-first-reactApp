@@ -15,7 +15,7 @@ class HornedBeast extends React.Component {
           <Card.Img
             variant="top"
             src={this.props.imageUrl}
-             onClick={()=>{this.props.update(this.props.horns)}}
+             onClick={()=>{this.props.update(this.props.title)}}
           />
           <Card.Body>
             <Card.Title>{this.props.title}</Card.Title>
