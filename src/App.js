@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       Beast: {},
       show: false,
-      newCards: { Cards },
+      newCards: Cards ,
     };
   }
 
@@ -26,9 +26,10 @@ class App extends React.Component {
   };
   eventHappened = (event) => {
     event.preventDefault()
-    let Horns = event.target.options.value;
-        // const beastNum = Cards.find((horns) => beast.title === title);
-    const beastNum = Cards.find(( horns ) => horns.horns === Horns);
+    let Horns = event.target.value;
+    console.log(Horns)
+    const beastNum = Cards.filter(( horns ) => horns.horns == Horns);
+    console.log(beastNum)
     this.setState({
       newCards: beastNum,
     });
@@ -46,7 +47,7 @@ class App extends React.Component {
         <Header />
         <Form.Group className="mb-3">
           <Form.Label>Filter</Form.Label>
-          <Form.Select onChange={this.eventHappened} id="options">
+          <Form.Select onClick={this.eventHappened}>
             <option value="">-Please choose an option-</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -54,7 +55,7 @@ class App extends React.Component {
             <option value="100">100</option>
           </Form.Select>
         </Form.Group>
-        <Main Cards={Cards} update={this.updateState} />
+        <Main Cards={this.state.newCards} update={this.updateState} />
         <SelectedBeast
           updateState={this.state.show}
           handleClose={this.handleClose}
