@@ -12,7 +12,7 @@ class App extends React.Component {
     this.state = {
       Beast: {},
       show: false,
-      newCards: Cards ,
+      newCards: Cards,
     };
   }
 
