@@ -13,9 +13,9 @@ class App extends React.Component {
       Beast: {},
       show: false,
       newCards: Cards,
+      // hornValue:0
     };
-  }
-
+  };
   updateState = (title) => {
     const beastName = Cards.find((beast) => beast.title === title);
 
@@ -24,12 +24,18 @@ class App extends React.Component {
       Beast: beastName,
     });
   };
+
   eventHappened = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     let Horns = event.target.value;
-    console.log(Horns)
-    const beastNum = Cards.filter(( horns ) => horns.horns == Horns);
-    console.log(beastNum)
+    console.log("event=Horns",Horns)
+    let beastNum =[];
+    console.log("beastNum before",beastNum)
+    if ((Horns ==0)) {
+      beastNum = Cards;
+    }else
+    { 
+      beastNum = Cards.filter((horns) => horns.horns == Horns);}
     this.setState({
       newCards: beastNum,
     });
@@ -43,12 +49,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <body>
-        <Header />
-        <Form.Group className="mb-3">
-          <Form.Label>Filter</Form.Label>
-          <Form.Select onClick={this.eventHappened}>
-            <option value="">-Please choose an option-</option>
+      <div style={{"background-image":"url(https://wallpaperaccess.com/full/1155011.jpg)","background-repeat": "no-repeat","-moz-background-size":"cover", "background-size": "cover"}}>
+        <Header/>
+        <Form.Group className="mb-3" style={{width:"30%",display:"flex",justifyContent:"center","margin-top":"1rem"}}>
+          <Form.Label style={{margin:"5px","box-sizing":" border-box" ,color:"whitesmoke","margin-left":"1rem"}}>Filter</Form.Label>
+          <Form.Select onChange={this.eventHappened} style={{"margin-bottom":" 20px","box-sizing":" border-box"}}>
+            <option value="0">-Please choose an option-</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -62,7 +68,7 @@ class App extends React.Component {
           selectedOne={this.state.Beast}
         />
         <Footer />
-      </body>
+      </div>
     );
   }
 }
