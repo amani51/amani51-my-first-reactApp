@@ -15,10 +15,10 @@
 > 2:00pm
 
 * Finish time: 
->still working on it
+>finished within 2 days 
 
 * Actual time needed to complete:
-> still working on it
+> finished within 2 days, I spent time formatting 
 
 
 
